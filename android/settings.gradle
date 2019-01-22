@@ -1,0 +1,5 @@
+rootProject.name = 'RN_TF_Lite'
+include ':react-native-tensorflow-lite'
+project(':react-native-tensorflow-lite').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-tensorflow-lite/android')
+
+include ':app'
