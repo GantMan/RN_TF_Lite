@@ -1,4 +1,4 @@
-# React Native Tensorflow Light - Example
+# React Native Tensorflow Lite - Example
 Simple image recognition with the Inception TF Lite model.
 
 ![TF Demo](_art/RN_tensor_flow_lite.gif)
