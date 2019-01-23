@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, StyleSheet, View, Text, Image } from 'react-native'
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
 
 import { TFLiteImageRecognition } from 'react-native-tensorflow-lite'
 
@@ -23,7 +23,7 @@ export default class MyImageClassifier extends Component {
 
   componentWillMount() {
     // Image is also in assets :'(
-    this.classifyImage('coffee_224.jpg') // Your image path.
+    // this.classifyImage('coffee_224.jpg') // Your image path.
   }
 
   async classifyImage(imagePath) {
@@ -53,6 +53,35 @@ export default class MyImageClassifier extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <View style={styles.images}>
+          <TouchableOpacity
+            style={styles.imageContainer}
+            onPress={() => this.classifyImage('apple_224.jpg')}
+          >
+            <Image
+              style={styles.image}
+              source={require('./images/apple_224.jpg')}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.imageContainer}
+            onPress={() => this.classifyImage('coffee_224.jpg')}
+          >
+            <Image
+              style={styles.image}
+              source={require('./images/coffee_224.jpg')}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.imageContainer}
+            onPress={() => this.classifyImage('taco_224.jpg')}
+          >
+            <Image
+              style={styles.image}
+              source={require('./images/taco_224.jpg')}
+            />
+          </TouchableOpacity>
+        </View>
         <View>
           <Text>RESULTS:</Text>
           <Text style={styles.results}>{this.state.name}</Text>
@@ -74,5 +103,16 @@ const styles = StyleSheet.create({
   results: {
     textAlign: 'center',
     fontSize: 24
+  },
+  images: {
+    flexDirection: 'row'
+  },
+  imageContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    overflow: 'hidden'
+  },
+  image: {
+    resizeMode: 'contain'
   }
 })
