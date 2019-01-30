@@ -21,11 +21,6 @@ export default class MyImageClassifier extends Component {
     }
   }
 
-  componentWillMount() {
-    // Image is also in assets :'(
-    // this.classifyImage('coffee_224.jpg') // Your image path.
-  }
-
   async classifyImage(imagePath) {
     try {
       const results = await this.classifier.recognize({
@@ -47,7 +42,8 @@ export default class MyImageClassifier extends Component {
   }
 
   componentWillUnmount() {
-    this.classifier.close() // Must close the classifier when destroying or unmounting component to release object.
+    // Must close the classifier when destroying or unmounting component to release object.
+    this.classifier.close()
   }
 
   render() {
